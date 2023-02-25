@@ -10,21 +10,13 @@ PlacesSearchResponse _$PlacesSearchResponseFromJson(Map<String, dynamic> json) {
   return PlacesSearchResponse(
     status: json['status'] as String,
     errorMessage: json['error_message'] as String?,
-    results: (json['results'] as List<dynamic>?)
-            ?.map((e) => PlacesSearchResult.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    htmlAttributions: (json['html_attributions'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
+    results: (json['results'] as List<dynamic>?)?.map((e) => PlacesSearchResult.fromJson(e as Map<String, dynamic>)).toList() ?? [],
+    htmlAttributions: (json['html_attributions'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
     nextPageToken: json['next_page_token'] as String?,
   );
 }
 
-Map<String, dynamic> _$PlacesSearchResponseToJson(
-        PlacesSearchResponse instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PlacesSearchResponseToJson(PlacesSearchResponse instance) => <String, dynamic>{
       'status': instance.status,
       'error_message': instance.errorMessage,
       'results': instance.results,
@@ -39,26 +31,13 @@ PlacesSearchResult _$PlacesSearchResultFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     placeId: json['place_id'] as String,
     formattedAddress: json['formatted_address'] as String?,
-    photos: (json['photos'] as List<dynamic>?)
-            ?.map((e) => Photo.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    altIds: (json['alt_ids'] as List<dynamic>?)
-            ?.map((e) => AlternativeId.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    types:
-        (json['types'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-            [],
+    photos: (json['photos'] as List<dynamic>?)?.map((e) => Photo.fromJson(e as Map<String, dynamic>)).toList() ?? [],
+    altIds: (json['alt_ids'] as List<dynamic>?)?.map((e) => AlternativeId.fromJson(e as Map<String, dynamic>)).toList() ?? [],
+    types: (json['types'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
     permanentlyClosed: json['permanently_closed'] as bool? ?? false,
     icon: json['icon'] as String?,
-    geometry: json['geometry'] == null
-        ? null
-        : Geometry.fromJson(json['geometry'] as Map<String, dynamic>),
-    openingHours: json['opening_hours'] == null
-        ? null
-        : OpeningHoursDetail.fromJson(
-            json['opening_hours'] as Map<String, dynamic>),
+    geometry: json['geometry'] == null ? null : Geometry.fromJson(json['geometry'] as Map<String, dynamic>),
+    openingHours: json['opening_hours'] == null ? null : OpeningHoursDetail.fromJson(json['opening_hours'] as Map<String, dynamic>),
     scope: json['scope'] as String?,
     priceLevel: _$enumDecodeNullable(_$PriceLevelEnumMap, json['price_level']),
     rating: json['rating'] as num?,
@@ -66,8 +45,7 @@ PlacesSearchResult _$PlacesSearchResultFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PlacesSearchResultToJson(PlacesSearchResult instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PlacesSearchResultToJson(PlacesSearchResult instance) => <String, dynamic>{
       'icon': instance.icon,
       'geometry': instance.geometry,
       'name': instance.name,
@@ -135,47 +113,31 @@ PlaceDetails _$PlaceDetailsFromJson(Map<String, dynamic> json) {
   return PlaceDetails(
     id: json['id'] as String,
     adrAddress: json['adr_address'] as String,
-    name: json['name'] as String,
+    name: json['name'] as String?,
     placeId: json['place_id'] as String,
     internationalPhoneNumber: json['international_phone_number'] as String,
     utcOffset: json['utc_offset'] as num,
-    addressComponents: (json['address_components'] as List<dynamic>?)
-            ?.map((e) => AddressComponent.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    photos: (json['photos'] as List<dynamic>?)
-            ?.map((e) => Photo.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    types:
-        (json['types'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-            [],
-    reviews: (json['reviews'] as List<dynamic>?)
-            ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
+    addressComponents:
+        (json['address_components'] as List<dynamic>?)?.map((e) => AddressComponent.fromJson(e as Map<String, dynamic>)).toList() ?? [],
+    photos: (json['photos'] as List<dynamic>?)?.map((e) => Photo.fromJson(e as Map<String, dynamic>)).toList() ?? [],
+    types: (json['types'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
+    reviews: (json['reviews'] as List<dynamic>?)?.map((e) => Review.fromJson(e as Map<String, dynamic>)).toList() ?? [],
     formattedAddress: json['formatted_address'] as String?,
     formattedPhoneNumber: json['formatted_phone_number'] as String?,
     reference: json['reference'] as String?,
     icon: json['icon'] as String?,
     rating: json['rating'] as num?,
-    openingHours: json['opening_hours'] == null
-        ? null
-        : OpeningHoursDetail.fromJson(
-            json['opening_hours'] as Map<String, dynamic>),
+    openingHours: json['opening_hours'] == null ? null : OpeningHoursDetail.fromJson(json['opening_hours'] as Map<String, dynamic>),
     priceLevel: _$enumDecodeNullable(_$PriceLevelEnumMap, json['price_level']),
     scope: json['scope'] as String?,
     url: json['url'] as String?,
     vicinity: json['vicinity'] as String?,
     website: json['website'] as String?,
-    geometry: json['geometry'] == null
-        ? null
-        : Geometry.fromJson(json['geometry'] as Map<String, dynamic>),
+    geometry: json['geometry'] == null ? null : Geometry.fromJson(json['geometry'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$PlaceDetailsToJson(PlaceDetails instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PlaceDetailsToJson(PlaceDetails instance) => <String, dynamic>{
       'address_components': instance.addressComponents,
       'adr_address': instance.adrAddress,
       'formatted_address': instance.formattedAddress,
@@ -203,53 +165,37 @@ Map<String, dynamic> _$PlaceDetailsToJson(PlaceDetails instance) =>
 OpeningHoursDetail _$OpeningHoursDetailFromJson(Map<String, dynamic> json) {
   return OpeningHoursDetail(
     openNow: json['open_now'] as bool? ?? false,
-    periods: (json['periods'] as List<dynamic>?)
-            ?.map((e) => OpeningHoursPeriod.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    weekdayText: (json['weekday_text'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
+    periods: (json['periods'] as List<dynamic>?)?.map((e) => OpeningHoursPeriod.fromJson(e as Map<String, dynamic>)).toList() ?? [],
+    weekdayText: (json['weekday_text'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
   );
 }
 
-Map<String, dynamic> _$OpeningHoursDetailToJson(OpeningHoursDetail instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OpeningHoursDetailToJson(OpeningHoursDetail instance) => <String, dynamic>{
       'open_now': instance.openNow,
       'periods': instance.periods,
       'weekday_text': instance.weekdayText,
     };
 
-OpeningHoursPeriodDate _$OpeningHoursPeriodDateFromJson(
-    Map<String, dynamic> json) {
+OpeningHoursPeriodDate _$OpeningHoursPeriodDateFromJson(Map<String, dynamic> json) {
   return OpeningHoursPeriodDate(
     day: json['day'] as int,
     time: json['time'] as String,
   );
 }
 
-Map<String, dynamic> _$OpeningHoursPeriodDateToJson(
-        OpeningHoursPeriodDate instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OpeningHoursPeriodDateToJson(OpeningHoursPeriodDate instance) => <String, dynamic>{
       'day': instance.day,
       'time': instance.time,
     };
 
 OpeningHoursPeriod _$OpeningHoursPeriodFromJson(Map<String, dynamic> json) {
   return OpeningHoursPeriod(
-    open: json['open'] == null
-        ? null
-        : OpeningHoursPeriodDate.fromJson(json['open'] as Map<String, dynamic>),
-    close: json['close'] == null
-        ? null
-        : OpeningHoursPeriodDate.fromJson(
-            json['close'] as Map<String, dynamic>),
+    open: json['open'] == null ? null : OpeningHoursPeriodDate.fromJson(json['open'] as Map<String, dynamic>),
+    close: json['close'] == null ? null : OpeningHoursPeriodDate.fromJson(json['close'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$OpeningHoursPeriodToJson(OpeningHoursPeriod instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OpeningHoursPeriodToJson(OpeningHoursPeriod instance) => <String, dynamic>{
       'open': instance.open,
       'close': instance.close,
     };
@@ -259,10 +205,7 @@ Photo _$PhotoFromJson(Map<String, dynamic> json) {
     photoReference: json['photo_reference'] as String,
     height: json['height'] as num,
     width: json['width'] as num,
-    htmlAttributions: (json['html_attributions'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
+    htmlAttributions: (json['html_attributions'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
   );
 }
 
@@ -280,28 +223,21 @@ AlternativeId _$AlternativeIdFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AlternativeIdToJson(AlternativeId instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$AlternativeIdToJson(AlternativeId instance) => <String, dynamic>{
       'place_id': instance.placeId,
       'scope': instance.scope,
     };
 
-PlacesDetailsResponse _$PlacesDetailsResponseFromJson(
-    Map<String, dynamic> json) {
+PlacesDetailsResponse _$PlacesDetailsResponseFromJson(Map<String, dynamic> json) {
   return PlacesDetailsResponse(
     status: json['status'] as String,
     errorMessage: json['error_message'] as String?,
     result: PlaceDetails.fromJson(json['result'] as Map<String, dynamic>),
-    htmlAttributions: (json['html_attributions'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
+    htmlAttributions: (json['html_attributions'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
   );
 }
 
-Map<String, dynamic> _$PlacesDetailsResponseToJson(
-        PlacesDetailsResponse instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PlacesDetailsResponseToJson(PlacesDetailsResponse instance) => <String, dynamic>{
       'status': instance.status,
       'error_message': instance.errorMessage,
       'result': instance.result,
@@ -332,21 +268,15 @@ Map<String, dynamic> _$ReviewToJson(Review instance) => <String, dynamic>{
       'time': instance.time,
     };
 
-PlacesAutocompleteResponse _$PlacesAutocompleteResponseFromJson(
-    Map<String, dynamic> json) {
+PlacesAutocompleteResponse _$PlacesAutocompleteResponseFromJson(Map<String, dynamic> json) {
   return PlacesAutocompleteResponse(
     status: json['status'] as String,
     errorMessage: json['error_message'] as String?,
-    predictions: (json['predictions'] as List<dynamic>?)
-            ?.map((e) => Prediction.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
+    predictions: (json['predictions'] as List<dynamic>?)?.map((e) => Prediction.fromJson(e as Map<String, dynamic>)).toList() ?? [],
   );
 }
 
-Map<String, dynamic> _$PlacesAutocompleteResponseToJson(
-        PlacesAutocompleteResponse instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PlacesAutocompleteResponseToJson(PlacesAutocompleteResponse instance) => <String, dynamic>{
       'status': instance.status,
       'error_message': instance.errorMessage,
       'predictions': instance.predictions,
@@ -356,29 +286,19 @@ Prediction _$PredictionFromJson(Map<String, dynamic> json) {
   return Prediction(
     description: json['description'] as String?,
     id: json['id'] as String?,
-    terms: (json['terms'] as List<dynamic>?)
-            ?.map((e) => Term.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
+    terms: (json['terms'] as List<dynamic>?)?.map((e) => Term.fromJson(e as Map<String, dynamic>)).toList() ?? [],
     distanceMeters: json['distance_meters'] as int?,
     placeId: json['place_id'] as String?,
     reference: json['reference'] as String?,
-    types:
-        (json['types'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-            [],
-    matchedSubstrings: (json['matched_substrings'] as List<dynamic>?)
-            ?.map((e) => MatchedSubstring.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    structuredFormatting: json['structured_formatting'] == null
-        ? null
-        : StructuredFormatting.fromJson(
-            json['structured_formatting'] as Map<String, dynamic>),
+    types: (json['types'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
+    matchedSubstrings:
+        (json['matched_substrings'] as List<dynamic>?)?.map((e) => MatchedSubstring.fromJson(e as Map<String, dynamic>)).toList() ?? [],
+    structuredFormatting:
+        json['structured_formatting'] == null ? null : StructuredFormatting.fromJson(json['structured_formatting'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$PredictionToJson(Prediction instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PredictionToJson(Prediction instance) => <String, dynamic>{
       'description': instance.description,
       'id': instance.id,
       'terms': instance.terms,
@@ -409,8 +329,7 @@ MatchedSubstring _$MatchedSubstringFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MatchedSubstringToJson(MatchedSubstring instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$MatchedSubstringToJson(MatchedSubstring instance) => <String, dynamic>{
       'offset': instance.offset,
       'length': instance.length,
     };
@@ -418,8 +337,7 @@ Map<String, dynamic> _$MatchedSubstringToJson(MatchedSubstring instance) =>
 StructuredFormatting _$StructuredFormattingFromJson(Map<String, dynamic> json) {
   return StructuredFormatting(
     mainText: json['main_text'] as String,
-    mainTextMatchedSubstrings: (json['main_text_matched_substrings']
-                as List<dynamic>?)
+    mainTextMatchedSubstrings: (json['main_text_matched_substrings'] as List<dynamic>?)
             ?.map((e) => MatchedSubstring.fromJson(e as Map<String, dynamic>))
             .toList() ??
         [],
@@ -427,9 +345,7 @@ StructuredFormatting _$StructuredFormattingFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$StructuredFormattingToJson(
-        StructuredFormatting instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$StructuredFormattingToJson(StructuredFormatting instance) => <String, dynamic>{
       'main_text': instance.mainText,
       'main_text_matched_substrings': instance.mainTextMatchedSubstrings,
       'secondary_text': instance.secondaryText,
