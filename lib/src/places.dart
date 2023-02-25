@@ -619,7 +619,7 @@ class PlaceDetails {
   final List<AddressComponent> addressComponents;
 
   /// JSON adr_address
-  final String adrAddress;
+  final String? adrAddress;
 
   /// JSON formatted_address
   final String? formattedAddress;
@@ -642,10 +642,10 @@ class PlaceDetails {
   final List<Photo> photos;
 
   /// JSON place_id
-  final String placeId;
+  final String? placeId;
 
   /// JSON international_phone_number
-  final String internationalPhoneNumber;
+  final String? internationalPhoneNumber;
 
   /// JSON price_level
   final PriceLevel? priceLevel;
@@ -662,7 +662,7 @@ class PlaceDetails {
   final String? vicinity;
 
   /// JSON utc_offset
-  final num utcOffset;
+  final num? utcOffset;
 
   final String? website;
 
@@ -673,11 +673,11 @@ class PlaceDetails {
 
   PlaceDetails({
     this.id,
-    required this.adrAddress,
+    this.adrAddress,
     this.name,
-    required this.placeId,
-    required this.internationalPhoneNumber,
-    required this.utcOffset,
+    this.placeId,
+    this.internationalPhoneNumber,
+    this.utcOffset,
     this.addressComponents = const [],
     this.photos = const [],
     this.types = const [],
