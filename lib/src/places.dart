@@ -627,7 +627,7 @@ class PlaceDetails {
   /// JSON formatted_phone_number
   final String? formattedPhoneNumber;
 
-  final String id;
+  final String? id;
 
   final String? reference;
 
@@ -672,9 +672,9 @@ class PlaceDetails {
   final Geometry? geometry;
 
   PlaceDetails({
-    required this.id,
+    this.id,
     required this.adrAddress,
-    required this.name,
+    this.name,
     required this.placeId,
     required this.internationalPhoneNumber,
     required this.utcOffset,

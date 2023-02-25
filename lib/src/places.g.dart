@@ -111,7 +111,7 @@ const _$PriceLevelEnumMap = {
 
 PlaceDetails _$PlaceDetailsFromJson(Map<String, dynamic> json) {
   return PlaceDetails(
-    id: json['id'] as String,
+    id: json['id'] as String?,
     adrAddress: json['adr_address'] as String,
     name: json['name'] as String?,
     placeId: json['place_id'] as String,
