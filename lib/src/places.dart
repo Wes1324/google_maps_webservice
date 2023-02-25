@@ -966,12 +966,12 @@ class StructuredFormatting {
 
   @JsonKey(defaultValue: <MatchedSubstring>[])
   final List<MatchedSubstring> mainTextMatchedSubstrings;
-  final String secondaryText;
+  final String? secondaryText;
 
   StructuredFormatting({
     required this.mainText,
     this.mainTextMatchedSubstrings = const <MatchedSubstring>[],
-    required this.secondaryText,
+    this.secondaryText,
   });
 
   factory StructuredFormatting.fromJson(Map<String, dynamic> json) => _$StructuredFormattingFromJson(json);
